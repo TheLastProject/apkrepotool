@@ -251,6 +251,21 @@ $ cd apkrepotool
 $ git pull --rebase
 ```
 
+## Running in a container
+
+For your convenience, apkrepotool is also distributed as an
+OCI-compliant image (usable in tools like podman and Docker).
+
+To use the container, ensure you have the directory structure and all
+necessary files as written above already setup and expose these to the
+container as a volume under /repo.
+
+For example:
+
+```
+$ podman run --mount=type=bin,source=/path/to/repo/on/host,destination=/repo apkrepotool
+```
+
 ## Dependencies
 
 Python >= 3.8 + `click` + `ruamel.yaml` + `repro-apk` >= 0.2.6.
